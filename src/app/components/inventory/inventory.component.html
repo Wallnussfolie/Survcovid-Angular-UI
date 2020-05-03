@@ -1,0 +1,22 @@
+<p>On this page, you can see your inventory</p>
+
+<div class="container">
+  <table class="table table-bordered table-inverse">
+    <tr>
+      <th>Item count</th>
+      <th>Name</th>
+      <th>Type id</th>
+    </tr>
+    <tr *ngFor="let inventoryItem of inventory">
+      <td>
+        {{inventoryItem.itemCount}}
+      </td>
+      <td>
+        {{inventoryItem.itemTypeDisplayName}}
+      </td>
+      <td class="text-center">
+        {{inventoryItem.itemTypeName}}
+      </td>
+    </tr>
+  </table>
+</div>

@@ -4,7 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve --proxy-config proxy.conf.json` for a dev server. Navigate to `http://localhost:4200/`. 
+The app will automatically reload if you change any of the source files. 
+
+--> Run `npm start` to start a node.js server which has a proxy enabled, so that the frontend can talk to the backend without having CORS issues <--
+This way `ng serve --proxy-config proxy.conf.json` gets executed. 
 
 ## Code scaffolding
 
