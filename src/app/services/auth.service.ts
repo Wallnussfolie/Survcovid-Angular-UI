@@ -20,7 +20,7 @@ export class AuthService {
 
   // to send login requests to the backend
   login(credentials): Observable<any> {
-    return this.http.post(AUTH_API + 'signin', {
+    return this.http.post(AUTH_API + '/signin', {
       username: credentials.username,
       password: credentials.password
     }, httpOptions);
@@ -28,7 +28,7 @@ export class AuthService {
 
   // to send register requests to the backend
   register(user): Observable<any> {
-    return this.http.post(AUTH_API + 'signup', {
+    return this.http.post(AUTH_API + '/signup', {
       username: user.username,
       email: user.email,
       password: user.password
