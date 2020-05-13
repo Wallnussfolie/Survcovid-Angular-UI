@@ -20,7 +20,7 @@ export class InventoryComponent implements OnInit {
     this.inventoryService.getInventory().subscribe(
       data => {this.inventory = data; },
       err => console.error(err),
-      () => console.log('bikes loaded')
+      () => console.log('inventory loaded')
     );
   }
 
