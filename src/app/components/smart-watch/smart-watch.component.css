@@ -1,0 +1,33 @@
+.smart-watch {
+    background-image:url('/assets/img/smartwatch.png');
+    background-repeat:no-repeat;
+    background-size:cover;
+    height:60vh;
+    width:60vh;
+  }
+  
+  .watch-content {
+    position:relative;
+    left:17.5vh;
+    top:17vh;
+    width:24vh;
+    height:26vh;
+    text-align:center;
+  }
+  
+  .watch-content .fas {
+    padding:0.2em;
+    margin:auto;
+  }
+  
+  @media (max-width:500px) {
+    .smart-watch {
+      position: fixed;
+      top:0px;
+      left:0px;
+    }
+  
+    .watch-content {
+      font-size:0.8em;
+    }
+  }

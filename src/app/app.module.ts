@@ -19,6 +19,18 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { BoardModeratorComponent } from './components/board-moderator/board-moderator.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
 import {TestService} from './test.service';
+import { SmartPhoneComponent } from './components/smart-phone/smart-phone.component';
+import { SmartWatchComponent } from './components/smart-watch/smart-watch.component';
+import { SmartPhoneMenuComponent } from './components/smart-phone-menu/smart-phone-menu.component';
+import { RouterModule } from '@angular/router';
+
+const ROUTES = [
+  {path:'home',component : HomeComponent},
+  {path : 'smart-phone-menu',component:SmartPhoneMenuComponent},
+  {path:'',redirectTo: 'home', pathMatch : 'full'}
+  
+];
+
 
 @NgModule({
   declarations: [
@@ -31,9 +43,13 @@ import {TestService} from './test.service';
     ProfileComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    SmartPhoneComponent,
+    SmartWatchComponent,
+    SmartPhoneMenuComponent
   ],
   imports: [
+    RouterModule.forRoot(ROUTES),
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
