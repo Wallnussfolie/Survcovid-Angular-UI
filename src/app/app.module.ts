@@ -23,6 +23,8 @@ import { SmartPhoneComponent } from './components/smart-phone/smart-phone.compon
 import { SmartWatchComponent } from './components/smart-watch/smart-watch.component';
 import { SmartPhoneMenuComponent } from './components/smart-phone-menu/smart-phone-menu.component';
 import { RouterModule } from '@angular/router';
+import { LogoutComponent } from './components/logout/logout.component';
+import { ShopComponent } from './components/shop/shop.component';
 
 const ROUTES = [
   {path:'home',component : HomeComponent},
@@ -46,7 +48,9 @@ const ROUTES = [
     BoardUserComponent,
     SmartPhoneComponent,
     SmartWatchComponent,
-    SmartPhoneMenuComponent
+    SmartPhoneMenuComponent,
+    LogoutComponent,
+    ShopComponent
   ],
   imports: [
     RouterModule.forRoot(ROUTES),

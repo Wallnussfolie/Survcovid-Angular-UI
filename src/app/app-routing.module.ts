@@ -5,6 +5,8 @@ import {InventoryComponent} from './components/inventory/inventory.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {BoardAdminComponent} from './components/board-admin/board-admin.component';
+import {LogoutComponent} from './components/logout/logout.component';
+import { ShopComponent } from './components/shop/shop.component';
 
 
 const routes: Routes = [
@@ -28,6 +30,14 @@ const routes: Routes = [
   {
     path: 'admin',
     component: BoardAdminComponent
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent
+  },
+  {
+    path: 'shop',
+    component: ShopComponent
   }
 ];
 

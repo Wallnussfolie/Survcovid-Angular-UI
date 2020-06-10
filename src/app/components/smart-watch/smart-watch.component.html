@@ -1,8 +1,15 @@
 <div class="smart-watch text-success">
     <div class="watch-content">
-      <p><span class="fas fa-heartbeat fa-4x"></span>
-      <span class="fas fa-brain fa-4x"></span></p>
-      <p><span class="fas fa-users fa-4x"></span>
-      <span class="fas fa-coins fa-4x"></span></p>
+      <div *ngIf="isLoggedIn">
+        <p><span class="fas fa-heartbeat fa-4x"></span>
+        <span class="fas fa-brain fa-4x"></span></p>
+        <p><span class="fas fa-users fa-4x"></span>
+        <span class="fas fa-coins fa-4x"></span></p>
+        <p><a [routerLink]="['/logout']" class="text-success">Logout</a></p>
+      </div>
+      <div *ngIf="!isLoggedIn">
+        <p><a [routerLink]="['/login']" class="text-success">Login</a></p>
+        <p><a [routerLink]="['/register']" class="text-success">Register</a></p>
+      </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'smart-watch',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SmartWatchComponent implements OnInit {
 
+  @Input() isLoggedIn;
   constructor() { }
 
   ngOnInit(): void {

@@ -20,13 +20,18 @@
         
       </div>
       <div class="col text-center">
-        <a [routerLink]="['/storage']" class="text-success">
+        <a [routerLink]="['/myInventory']" class="text-success">
           <p><span class="fas fa-boxes fa-4x"></span></p>
         <p>Storage</p>
         </a>
         
       </div>
-      <div class="col"></div>
+      <div class="col text-center">
+        <a class="text-success" [routerLink]="['/shop']">
+          <p><span class="fas fa-shopping-cart fa-4x"></span></p>
+          <p>Shop</p>
+        </a>
+      </div>
       <div class="col"></div>
     </div>
 </div>

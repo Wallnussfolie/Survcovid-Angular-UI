@@ -6,15 +6,19 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
+
+const API_URL = '/server/api';
+
 @Injectable({
   providedIn: 'root'
 })
 export class InventoryService {
 
+
   constructor(private http: HttpClient) { }
 
-  getInventory() {
-    return this.http.get('/server/inventory/items?user_id=8');
+  getInventory(user) {
+    return this.http.get(API_URL + '/inventory/items?user_id='+user.id);
   }
 
 }
