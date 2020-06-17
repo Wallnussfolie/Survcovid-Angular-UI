@@ -6,6 +6,7 @@
         <p><span class="fas fa-users fa-4x"></span>
         <span class="fas fa-coins fa-4x"></span></p>
         <p><a [routerLink]="['/logout']" class="text-success">Logout</a></p>
+        <p *ngIf="showAdminBoard"><a [routerLink]="['/admin']" class="text-success">Admin-Board</a></p>
       </div>
       <div *ngIf="!isLoggedIn">
         <p><a [routerLink]="['/login']" class="text-success">Login</a></p>

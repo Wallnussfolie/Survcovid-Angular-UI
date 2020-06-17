@@ -25,10 +25,18 @@ import { SmartPhoneMenuComponent } from './components/smart-phone-menu/smart-pho
 import { RouterModule } from '@angular/router';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ShopComponent } from './components/shop/shop.component';
+import { EventsComponent } from './components/events/events.component';
+import { ActivitiesComponent } from './components/activities/activities.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { GameComponent } from './components/game/game.component';
+import { UsersComponent } from './components/users/users.component';
+import { ActivityDefinitionsComponent } from './components/activity-definitions/activity-definitions.component';
+import { CreateDefinitionComponent } from './components/activity-definitions/create-definition/create-definition.component';
+import { DefinitionDetailsComponent } from './components/activity-definitions/definition-details/definition-details.component';
+import { EditDefinitionComponent } from './components/activity-definitions/edit-definition/edit-definition.component';
 
 const ROUTES = [
   {path:'home',component : HomeComponent},
-  {path : 'smart-phone-menu',component:SmartPhoneMenuComponent},
   {path:'',redirectTo: 'home', pathMatch : 'full'}
   
 ];
@@ -50,7 +58,16 @@ const ROUTES = [
     SmartWatchComponent,
     SmartPhoneMenuComponent,
     LogoutComponent,
-    ShopComponent
+    ShopComponent,
+    EventsComponent,
+    ActivitiesComponent,
+    AdminComponent,
+    GameComponent,
+    UsersComponent,
+    ActivityDefinitionsComponent,
+    CreateDefinitionComponent,
+    DefinitionDetailsComponent,
+    EditDefinitionComponent
   ],
   imports: [
     RouterModule.forRoot(ROUTES),

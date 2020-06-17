@@ -1,25 +1,32 @@
-/* You can add global styles to this file, and also import other style files 
+/* You can add global styles to this file, and also import other style files
 @import '~bootstrap/dist/css/bootstrap.min.css';*/
 
 body {
     background-image: url('/assets/img/background.gif');
     background-size: cover;
   }
-  
+
   #typer {
     font-family: monospace;
   }
-  
+
   .form-control:focus {
     border-color: #28a745;
     box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
     color:#28a745;
     background-color:#343a40;
   }
-  
+
   .form-control {
     border-color:#28a74599;
     color:#28a745;
     background-color:#000000;
     width:90%;
+  }
+
+  hr {
+    display: block;
+    font-size: 1px;
+    width: 100%;
+    color: green;
   }

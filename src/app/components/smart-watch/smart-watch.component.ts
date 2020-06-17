@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SmartWatchComponent implements OnInit {
 
   @Input() isLoggedIn;
+  @Input() showAdminBoard;
   constructor() { }
 
   ngOnInit(): void {

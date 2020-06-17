@@ -14,9 +14,7 @@ export class UserService {
 
   // no adding of token data required here because we use Http Interceptor for this
   getUsers(): Observable<any> {
-    return this.http.get(API_URL, {
-      responseType: 'text'
-    });
+    return this.http.get(API_URL);
   }
 
 }
