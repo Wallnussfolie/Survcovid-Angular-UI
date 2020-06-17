@@ -1,0 +1,66 @@
+<form
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="activityDefinitionName">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="activityDefinitionName"
+          [(ngModel)]="form.activityDefinitionName"
+          required
+          minlength="3"
+          maxlength="50"
+          #activityDefinitionName="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && activityDefinitionName.invalid">
+          <div *ngIf="activityDefinitionName.errors.required">Name is required</div>
+          <div *ngIf="activityDefinitionName.errors.minlength">
+            Name must be at least 3 characters
+          </div>
+          <div *ngIf="activityDefinitionName.errors.maxlength">
+            Name must be at most 50 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="activityDefinitionDescription">Description</label>
+        <input
+          type="activityDefinitionDescription"
+          class="form-control"
+          name="activityDefinitionDescription"
+          [(ngModel)]="form.activityDefinitionDescription"
+          required
+          activityDefinitionDescription
+          #activityDefinitionDescription="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && activityDefinitionDescription.invalid">
+          <div *ngIf="activityDefinitionDescription.errors.required">Description is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="activityDefinitionEffort">Effort</label>
+        <input
+          type="number"
+          class="form-control"
+          name="activityDefinitionEffort"
+          [(ngModel)]="form.activityDefinitionEffort"
+          required
+          #activityDefinitionEffort="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && activityDefinitionEffort.invalid">
+          <div *ngIf="activityDefinitionEffort.errors.required">Effort is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">Create</button>
+      </div>
+
+      <div class="alert alert-warning" *ngIf="f.submitted && isFailed">
+        Creation failed!<br />{{ errorMessage }}
+      </div>
+    </form>

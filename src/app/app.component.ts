@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from './services/token-storage.service';
+import {ActivatedRoute} from '@angular/router'; 
 
 @Component({
   selector: 'app-root',
@@ -12,10 +13,11 @@ export class AppComponent implements OnInit{
   isLoggedIn = false;
   showAdminBoard = false;
   username: string;
+  isAdminBoard = false;
 
   title = 'Survcovid-Angular-UI';
 
-  constructor(private tokenStorageService: TokenStorageService) {
+  constructor(private tokenStorageService: TokenStorageService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -29,6 +31,11 @@ export class AppComponent implements OnInit{
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
 
       this.username = user.username;
+
+      if (this.route.outlet == "admin")
+      {
+        this.isAdminBoard = true;
+      }
 
     }
   }
