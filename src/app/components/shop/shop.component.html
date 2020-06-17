@@ -1,1 +1,55 @@
 <p>shop works!</p>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+<div *ngIf="successMessage" class="alert alert-success">
+  {{ successMessage }}
+</div>
+
+<table class="table table-striped table-dark text-success">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Available</th>
+    <th>Buy</th>
+  </tr>
+  <tr *ngFor="let item of items">
+    <td>
+      {{item.itemType.itemTypeDisplayName}}
+    </td>
+    <td>
+      {{item.itemPrice}}
+    </td>
+    <td class="text-center">
+      {{item.itemCount}}
+    </td>
+    <td>
+      <form
+      name="form"
+      (ngSubmit)="f.form.valid && buyItem(item)"
+      #f="ngForm"
+      novalidate
+      >
+      <div class="form-group">
+        <input
+          type="number"
+          class="form-control"
+          name="amount"
+          [(ngModel)]="form.amount"
+          required
+          #amount="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="f.submitted && amount.invalid"
+        >
+          Username is required!
+        </div>
+      </div>
+      <button class="btn btn-success">Buy</button>
+  </form>
+    </td>
+  </tr>
+</table>

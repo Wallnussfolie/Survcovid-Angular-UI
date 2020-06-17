@@ -1,6 +1,6 @@
 {
   "/server": {
-    "target": "http://survcovid.phiwa.eu:8080/",
+    "target": "http://survcovid.phiwa.eu:8090/",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",

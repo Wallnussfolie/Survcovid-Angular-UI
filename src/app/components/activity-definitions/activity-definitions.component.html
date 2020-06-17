@@ -1,0 +1,16 @@
+<p><a [routerLink]="['/admin/activities/create']">Add new definition</a></p>
+
+<table class="table table-striped">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Effort</th>
+  </tr>
+  <tr *ngFor="let definition of definitions">
+    <td>{{ definition.activityDefinitionId }}</td>
+    <td><a [routerLink]="['/admin/activities/', definition.activityDefinitionId]">{{ definition.activityDefinitionName }}</a></td>
+    <td>{{ definition.activityDefinitionDescription }}</td>
+    <td>{{ definition.activityDefinitionEffort }}</td>
+  </tr>
+</table>

@@ -14,4 +14,14 @@ export class ShopService {
       responseType: 'json',
     });
   }
+
+  buyItem(item, amount, user)
+  {
+    console.log(item.itemType.itemTypeId, user.id);
+    return this.http.post('/server/api/inventory/items', {
+      itemAmount: amount,
+      itemTypeId: item.itemType.itemTypeId,
+      userId: user.id
+    });
+  }
 }

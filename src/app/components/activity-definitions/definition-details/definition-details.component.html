@@ -1,0 +1,17 @@
+<div *ngIf="definition">
+  <h4>{{ definition.activityDefinitionName }}</h4>
+
+  <p>{{ definition.activityDefinitionDescription }}</p>
+
+  <p><strong>Effort:</strong> {{ definition.activityDefinitionEffort }}</p>
+
+  <h5>Conditions:</h5>
+
+  <p>n/a</p>
+
+  <p>
+    <div class="btn-group">
+      <a [routerLink]="['/admin/activities/edit/', definition.activityDefinitionId]" class="btn btn-primary">Edit</a>
+      <button class="btn btn-danger" type="button" (click)="deleteDefinition(definition.activityDefinitionId)">Delete</button>
+    </div>
+</div>

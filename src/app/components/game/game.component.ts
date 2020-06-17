@@ -1,21 +1,19 @@
-import {Component, OnInit} from '@angular/core';
-import {TokenStorageService} from './services/token-storage.service';
+import { Component, OnInit } from '@angular/core';
+import {TokenStorageService} from '../../services/token-storage.service';
 import {ActivatedRoute} from '@angular/router'; 
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './game.component.html',
+  styleUrls: ['./game.component.css']
 })
-export class AppComponent implements OnInit{
+export class GameComponent implements OnInit {
 
   private roles: string[];
   isLoggedIn = false;
   showAdminBoard = false;
   username: string;
   isAdminBoard = false;
-
-  title = 'Survcovid-Angular-UI';
 
   constructor(private tokenStorageService: TokenStorageService, private route: ActivatedRoute) {
   }
@@ -31,11 +29,6 @@ export class AppComponent implements OnInit{
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
 
       this.username = user.username;
-
-      if (this.route.outlet == "admin")
-      {
-        this.isAdminBoard = true;
-      }
 
     }
   }
