@@ -7,6 +7,7 @@ import {RegisterComponent} from './components/register/register.component';
 import {BoardAdminComponent} from './components/board-admin/board-admin.component';
 import {LogoutComponent} from './components/logout/logout.component';
 import { ShopComponent } from './components/shop/shop.component';
+import {ProfileComponent} from "./components/profile/profile.component";
 
 
 const routes: Routes = [
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'shop',
     component: ShopComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   }
 ];
 
