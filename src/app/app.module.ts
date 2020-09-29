@@ -34,6 +34,9 @@ import { ActivityDefinitionsComponent } from './components/activity-definitions/
 import { CreateDefinitionComponent } from './components/activity-definitions/create-definition/create-definition.component';
 import { DefinitionDetailsComponent } from './components/activity-definitions/definition-details/definition-details.component';
 import { EditDefinitionComponent } from './components/activity-definitions/edit-definition/edit-definition.component';
+import { SharedModule } from './shared/shared.module';
+import { ProfileAccountViewComponent } from './components/profile/profile-account-view/profile-account-view.component';
+import { ProfileGameViewComponent } from './components/profile/profile-game-view/profile-game-view.component';
 
 const ROUTES = [
   {path:'home',component : HomeComponent},
@@ -67,7 +70,9 @@ const ROUTES = [
     ActivityDefinitionsComponent,
     CreateDefinitionComponent,
     DefinitionDetailsComponent,
-    EditDefinitionComponent
+    EditDefinitionComponent,
+    ProfileAccountViewComponent,
+    ProfileGameViewComponent,
   ],
   imports: [
     RouterModule.forRoot(ROUTES),
@@ -75,7 +80,8 @@ const ROUTES = [
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [InventoryService, authInterceptorProviders],
   bootstrap: [AppComponent]

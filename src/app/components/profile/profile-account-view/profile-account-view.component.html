@@ -1,0 +1,26 @@
+<h3 style="text-align: center;">Account info</h3>
+
+<div>
+    <table>
+        <tr>
+            <td><p><b>Username:</b> {{user.username}}</p></td>
+            <td><button mat-button color="primary">Edit</button></td>
+        </tr>
+        <tr>
+            <td><p><b>Email:</b> {{user.email}}</p></td>
+            <td><button mat-button color="primary">Edit</button></td>
+        </tr>
+        <tr>
+            <p><b>Last login:</b> {{user.lastlogin | date}}</p>
+        </tr>
+    </table>
+    
+    
+    
+</div>
+
+<mat-divider class="profile-divider"></mat-divider>
+
+<div>
+    <p><b>Account state:</b> {{accountStateText}}</p>
+</div>
