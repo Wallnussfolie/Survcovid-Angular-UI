@@ -5,3 +5,10 @@
 .mat-tab-label {
     color: #28a745;
 }
+
+.mat-raised-button {
+    color: green;
+    border-color: green;
+    border-style: solid;
+    border-width: 10px;
+}
