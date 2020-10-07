@@ -1,1 +1,15 @@
-<p>events works!</p>
+<div *ngIf="event && !event.done">
+  <h4>{{ event.gameEventDefinition.shortTitle }}</h4>
+
+  {{ event.gameEventDefinition.description }}
+
+  <ul class="list-group">
+    <li *ngFor="let choice of event.gameEventDefinition.gameEventChoices" class="list-group-item list-group-item-success list-group-item-action" (click)="respondEvent(choice)">{{ choice.description }}</li>
+  </ul>
+</div>
+
+<div *ngIf="hasMessage">
+  {{ message }}
+
+  <button (click)="reloadPage()" *ngIf="canContinue" class="btn btn-success">Continue</button>
+</div>

@@ -1,0 +1,120 @@
+<form
+      *ngIf="user"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+  <div class="form-group">
+    <label for="userName" i18n>Name</label>
+    <input
+      type="text"
+      class="form-control"
+      name="userName"
+      [(ngModel)]="user.userName"
+      required
+      minlength="3"
+      maxlength="20"
+      #userName="ngModel"
+    />
+    <div class="alert-danger" *ngIf="f.submitted && userName.invalid">
+      <div *ngIf="userName.errors.required" i18n>Name is required</div>
+      <div *ngIf="userName.errors.minlength" i18n>
+        Name must be at least 3 characters
+      </div>
+      <div *ngIf="userName.errors.maxlength" i18n>
+        Name must be at most 20 characters
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email" i18n>E-Mail</label>
+    <input
+      type="email"
+      class="form-control"
+      name="email"
+      [(ngModel)]="user.email"
+      required
+      #email="ngModel"
+    />
+    <div class="alert-danger" *ngIf="f.submitted && user.email.invalid">
+      <div *ngIf="email.errors.required" i18n>E-Mail is required</div>
+      <div i18n>E-Mail is invalid</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password" i18n>Password</label>
+    <input
+      type="password"
+      class="form-control"
+      name="password"
+      minlength="6"
+      [(ngModel)]="user.new_password"
+      #new_password="ngModel"
+    />
+    <div class="alert-danger" *ngIf="f.submitted && user.new_password.invalid">
+      <div *ngIf="user.new_password.errors.minlength" i18n>
+        Password must be at least 6 characters
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="active" i18n>Active</label>
+    <select
+      class="form-control"
+      name="userState.active"
+      [(ngModel)]="user.userState.active"
+      required
+      #userState.active="ngModel"
+    >
+      <option [value]="true" i18n>Yes</option>
+      <option [value]="false" i18n>No</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="gameState.playerAccountBalance" i18n>Account balance</label>
+    <input
+      type="number"
+      class="form-control"
+      name="gameState.playerAccountBalance"
+      [(ngModel)]="user.gameState.playerAccountBalance"
+      required
+      #gameState.playerAccountBalance="ngModel"
+    />
+    <div class="alert-danger" *ngIf="f.submitted && gameState.playerAccountBalance.invalid">
+      <div *ngIf="gameState.playerAccountBalance.errors.required" i18n>Account balance is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="gameState.playerFitness" i18n>Fitness</label>
+    <input
+      type="number"
+      class="form-control"
+      name="gameState.playerFitness"
+      [(ngModel)]="user.gameState.playerFitness"
+      required
+      #gameState.playerFitness="ngModel"
+    />
+    <div class="alert-danger" *ngIf="f.submitted && gameState.playerFitness.invalid">
+      <div *ngIf="gameState.playerFitness.errors.required" i18n>Fitness is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="gameState.playerHealth" i18n>Health</label>
+    <input
+      type="number"
+      class="form-control"
+      name="gameState.playerHealth"
+      [(ngModel)]="user.gameState.playerHealth"
+      required
+      #gameState.playerHealth="ngModel"
+    />
+    <div class="alert-danger" *ngIf="f.submitted && gameState.playerHealth.invalid">
+      <div *ngIf="gameState.playerHealth.errors.required" i18n>Health is required</div>
+    </div>
+  </div>
+  <button class="btn btn-success btn-block" i18n>Save</button>
+</form>
+      <div class="alert alert-warning" *ngIf="isFailed" i18n>
+        Update failed!<br />{{ errorMessage }}
+      </div>

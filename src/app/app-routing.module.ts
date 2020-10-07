@@ -19,7 +19,10 @@ import { CreateDefinitionComponent}  from './components/activity-definitions/cre
 import { DefinitionDetailsComponent } from './components/activity-definitions/definition-details/definition-details.component';
 import { EditDefinitionComponent } from './components/activity-definitions/edit-definition/edit-definition.component';
 import { AdminGuard } from './admin.guard';
-
+import { UserDetailsComponent } from './components/users/user-details/user-details.component';
+import { EditUserComponent } from './components/users/edit-user/edit-user.component';
+import { EventDefinitionComponent } from './components/event-definition/event-definition.component';
+import { CreateEventComponent } from './components/event-definition/create-event/create-event.component';
 
 const routes: Routes = [
 
@@ -92,6 +95,22 @@ const routes: Routes = [
       {
         path: 'activities/edit/:id',
         component: EditDefinitionComponent
+      },
+      {
+        path: 'users/:id',
+        component: UserDetailsComponent
+      },
+      {
+        path: 'users/edit/:id',
+        component: EditUserComponent
+      },
+      {
+        path: 'events',
+        component: EventDefinitionComponent
+      },
+      {
+        path: 'events/create',
+        component: CreateEventComponent
       }
     ]
   }

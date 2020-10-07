@@ -17,4 +17,20 @@ export class UserService {
     return this.http.get(API_URL);
   }
 
+  getUser(id)
+  {
+    return this.http.get(API_URL+"/"+id);
+  }
+
+  update(userId, user)
+  {
+    console.log(user);
+    return this.http.put(API_URL+"/"+userId, user);
+  }
+
+  deleteUser(userId)
+  {
+    return this.http.delete(API_URL+"/"+userId);
+  }
+
 }

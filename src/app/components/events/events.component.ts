@@ -9,19 +9,53 @@ import { EventService } from '../../services/event.service';
 })
 export class EventsComponent implements OnInit {
 
-  public event = {};
+  event;
+  message;
+  hasMessage = false;
+  canContinue = false;
   constructor(private tokenStorage: TokenStorageService, private eventService: EventService) { }
 
   ngOnInit(): void {
     this.getEvent();
+    console.log(this.event);
   }
 
   getEvent() {
     this.eventService.nextEvent(this.tokenStorage.getUser()).subscribe(
-      data => { console.log('Data: '+data); },
-      err => console.log(err),
+      (data: any) => { 
+        if (data.gameEvent)
+        {
+          console.log(data.gameEvent);
+          this.event = data.gameEvent;
+        }
+        console.log(data);
+       },
+      err => { 
+        this.message = err.error.message;
+        this.hasMessage = true;
+        console.log(this.hasMessage);
+        console.log(err);
+      },
       () => console.log('events loaded')
       );
+  }
+
+  respondEvent(choice) {
+    this.eventService.respondEvent(this.tokenStorage.getUser(), this.event, choice).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.event = undefined;
+        this.message = data.message;
+        this.hasMessage = true;
+        this.canContinue = true;
+      },
+      err => console.log(err),
+      () => console.log('responded')
+    );
+  }
+
+  reloadPage() {
+    window.location.reload();
   }
 
 }

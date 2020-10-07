@@ -1,0 +1,60 @@
+<div *ngIf="user">
+  <h4>{{ user.userName }}</h4>
+
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <td>{{ user.userId }}</td>
+    </tr>
+    <tr>
+      <th>E-Mail</th>
+      <td>{{ user.email }}</td>
+    </tr>
+    <tr>
+      <th>Roles</th>
+      <td>
+        <ul>
+          <li *ngFor="let role of user.roles">{{ role.name }}</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="2"><h5>User state</h5></th>
+    </tr>
+    <tr>
+      <th>Last login</th>
+      <th>{{ user.userState.lastLogin }}</th>
+    </tr>
+    <tr>
+      <th>Is active</th>
+      <th>
+        <span class="fas fa-check" *ngIf="user.userState.active"></span>
+        <span class="fas fa-times" *ngIf="!user.userState.active"></span>
+      </th>
+    </tr>
+    <tr>
+      <th colspan="2"><h5>Game state</h5></th>
+    </tr>
+    <tr>
+      <th>Ingame date</th>
+      <td>{{ user.gameState.ingameDate }}</td>
+    </tr>
+    <tr>
+      <th>Health</th>
+      <td>{{ user.gameState.playerHealth }}</td>
+    </tr>
+    <tr>
+      <th>Fitness</th>
+      <td>{{ user.gameState.playerFitness }}</td>
+    </tr>
+    <tr>
+      <th>Account balance</th>
+      <td>{{ user.gameState.playerAccountBalance }} <span class="fas fa-crown"></span></td>
+    </tr>
+  </table>
+
+  <div class="btn-group">
+    <a class="btn btn-primary" [routerLink]="['/admin/users/edit/', user.userId]">Edit</a>
+    <button class="btn btn-danger" (click)="deleteUser(user.userId)">Delete</button>
+  </div>
+</div>

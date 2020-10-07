@@ -1,12 +1,12 @@
 <table class="table table-striped">
   <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>E-Mail</th>
+    <th i18n>ID</th>
+    <th i18n>Name</th>
+    <th i18n>E-Mail</th>
   </tr>
   <tr *ngFor="let user of users">
     <td>{{ user.userId }}</td>
-    <td>{{ user.userName }}</td>
+    <td><a [routerLink]="['/admin/users', user.userId]">{{ user.userName }}</a></td>
     <td>{{ user.email }}</td>
   </tr>
 </table>

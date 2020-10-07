@@ -1,1 +1,5 @@
-<p>activities works!</p>
+<div *ngFor="let definition of definitions">
+  <h3>{{ definition.activityDefinitionName }}</h3>
+  <p>{{ definition.activityDefinitionDescription }}</p>
+  <button class="btn btn-success" (click)="createActivity(definition)">Execute</button>
+</div>

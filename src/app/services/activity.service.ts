@@ -11,4 +11,11 @@ export class ActivityService {
   getActivities() {
     return this.http.get('/server/api/v1/activities');
   }
+
+  create(definition)
+  {
+    return this.http.post('/server/api/v1/activities', {
+      activityDefinition: definition
+    });
+  }
 }

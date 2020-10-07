@@ -1,0 +1,32 @@
+<h3>Events</h3>
+
+<p><a [routerLink]="['/admin/events/create']">Create new event</a></p>
+
+<table class="table table-striped">
+  <tr>
+    <th>ID</th>
+    <th>Short title</th>
+    <th>Description</th>
+    <th>Type</th>
+    <th>Choices</th>
+    <th>Requirements</th>
+  </tr>
+  <tr *ngFor="let event of events">
+    <td>{{ event.id }}</td>
+    <td>{{ event.shortTitle }}</td>
+    <td>{{ event.description }}</td>
+    <td>{{ event.gameEventDefinitionType }}</td>
+    <td>
+      <ul>
+        <li *ngFor="let choice of event.gameEventChoices">
+          {{ choice.description }}
+        </li>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <li *ngFor="let requirement of event.requirements">{{ requirement.requiredGameEventDefinitionShortTitle }} &raquo; {{ requirement.gameEventChoiceDescription }} &raquo; {{ requirement.type }}</li>
+      </ul>
+    </td>
+  </tr>
+</table>

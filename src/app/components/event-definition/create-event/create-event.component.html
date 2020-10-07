@@ -1,0 +1,87 @@
+<form
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+  >
+  <div class="form-group">
+    <label for="shortTitle">Short title</label>
+    <input 
+        type="text"
+        name="shortTitle"
+        class="form-control"
+        [(ngModel)]="event.shortTitle"
+        required
+        #shortTitle="ngModel" 
+      >
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea
+        name="description"
+        class="form-control"
+        [(ngModel)]="event.description"
+        required
+        #description="ngModel"
+      ></textarea>
+  </div>
+  <div class="form-group">
+    <label for="gameEventDefinitionType">Type</label>
+    <select
+        name="gameEventDefinitionType"
+        class="form-control"
+        [(ngModel)]="event.gameEventDefinitionType"
+        #gameEventDefinitionType="ngModel"
+      >
+        <option>STORY_EVENT</option>
+        <option>GENERIC_EVENT</option>
+      </select>
+  </div>
+  <h4>Choices</h4>
+  <div class="form-group">
+    <input 
+        *ngFor="let choice of choices; let i=index"
+        type="text"
+        class="form-control"
+        name="choice_description[{{ i }}]"
+        [(ngModel)]="choice.description"
+        #choice_description[i]="ngModel">
+  </div>
+    <button class="btn btn-success" (click)="createChoice()" type="button">+</button>
+  <h4>Requirements</h4>
+  <div *ngFor="let requirement of requirements; let i=index">
+    <div class="form-group">
+      <label for="requiredGameEventDefinitionId">Event</label>
+      <select
+          name="requiredGameEventDefinitionId[{{ i }}]"
+          class="form-control"
+          [(ngModel)]="requirement.requiredGameEventDefinitionId">
+            <option *ngFor="let event of events" value="{{ event.id }}" (click)="changeEvent(event, i)">{{ event.shortTitle }}</option>
+        </select>
+    </div>
+    <div class="form-group" *ngIf="requirement.eventDefinition">
+      <label for="gameEventChoiceId">Choice</label>
+      <select
+          name="gameEventChoiceId[{{ i }}]"
+          class="form-control"
+          [(ngModel)]="requirement.gameEventChoiceId"      
+      >
+      <option (click)="changeChoice(null, i)">Any</option>
+      <option *ngFor="let choice of requirement.eventDefinition.gameEventChoices" value="{{ choice.id }}" (click)="changeChoice(choice, i)">{{ choice.description }}</option>
+      </select>
+    </div>
+    <div class="form-group" *ngIf="requirement.eventDefinition">
+      <label for="type">Type</label>
+      <select
+          name="type[{{ i }}]"
+          class="form-control"
+          [(ngModel)]="requirement.type"
+      >
+        <option>HAS_HAPPENED</option>
+        <option>HAS_NOT_HAPPENED</option>
+      </select>
+    </div>
+  </div>
+    <button class="btn btn-success" (click)="createRequirement()" type="button">+</button>
+    <button class="btn btn-primary">Create</button>
+</form>

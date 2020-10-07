@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="33629999fd41361c48d5a60a5783dfdbd09276b7" datatype="html">
+        <source>Calendar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/smart-phone-menu/smart-phone-menu.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dd3b6c367381ddfa8f317b8e9b31c55368c65136" datatype="html">
+        <source>Activities</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/smart-phone-menu/smart-phone-menu.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1fd6dbd0942f77002d852d7744dcb991cdd464d8" datatype="html">
+        <source>Storage</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/smart-phone-menu/smart-phone-menu.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="72f34b3ac267bb423e47c3bed43123f99239d1da" datatype="html">
+        <source>Shop</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/smart-phone-menu/smart-phone-menu.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8" datatype="html">
+        <source>Profile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/smart-phone-menu/smart-phone-menu.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="af88c1e95a1d16d3cdbb7210981e0bfb6dc1d137" datatype="html">
+        <source>Events</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/smart-phone-menu/smart-phone-menu.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="45cc8ca94b5a50842a9a8ef804a5ab089a38ae5c" datatype="html">
+        <source>ID</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/users.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/users.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6d3b88a3ae6ff3d987f86395605397ec736dee9c" datatype="html">
+        <source>E-Mail</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/users.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5b752f143ab30faa45a2679b5e7a28bbf3fb246d" datatype="html">
+        <source>Name is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="51d33217e2f2855ec000232d50263ada7517ecf3" datatype="html">
+        <source>
+        Name must be at least 3 characters
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2a1cfc98119ce795b9adfd4b707e4a064db76221" datatype="html">
+        <source>
+        Name must be at most 20 characters
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5f048510aed145e7ebe0746ebc98dcea3677ae24" datatype="html">
+        <source>E-Mail is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8360e5a5ab214102a339ffbd4b3b69772e5411d4" datatype="html">
+        <source>E-Mail is invalid</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c32ef07f8803a223a83ed17024b38e8d82292407" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ab40978a397bcaf4d13c896d8b24409ca2745919" datatype="html">
+        <source>
+        Password must be at least 6 characters
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b36e1450940b7f6028d8587568c7d669b53f7a06" datatype="html">
+        <source>Active</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4f20f2d5a6882190892e58b85f6ccbedfa737952" datatype="html">
+        <source>Yes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3d3ae7deebc5949b0c1c78b9847886a94321d9fd" datatype="html">
+        <source>No</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="85475c52b5d8e1ad305c8bdb9ca68625bf3c1e9b" datatype="html">
+        <source>Account balance</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a764d2c31b3ff246515cee0fca0ab922297db59a" datatype="html">
+        <source>Account balance is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d0b94d2e7e1fc449fd4d3384c300dbb2cb87c4c1" datatype="html">
+        <source>Fitness</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c80ec7391752d556c421692626ed116612023656" datatype="html">
+        <source>Fitness is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d2bcd3296d2850de762fb943060b7e086a893181" datatype="html">
+        <source>Health</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="78d086825c03607058a66dab1fecb76ab29621c9" datatype="html">
+        <source>Health is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="52c9a103b812f258bcddc3d90a6e3f46871d25fe" datatype="html">
+        <source>Save</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0fb34559fbcbe71bf3d320ddbfa04ecd79b5e74b" datatype="html">
+        <source>
+        Update failed!<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="INTERPOLATION" equiv-text="{{ errorMessage }}"/>
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/users/edit-user/edit-user.component.html</context>
+          <context context-type="linenumber">118</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

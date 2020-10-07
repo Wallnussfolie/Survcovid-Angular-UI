@@ -34,6 +34,10 @@ import { ActivityDefinitionsComponent } from './components/activity-definitions/
 import { CreateDefinitionComponent } from './components/activity-definitions/create-definition/create-definition.component';
 import { DefinitionDetailsComponent } from './components/activity-definitions/definition-details/definition-details.component';
 import { EditDefinitionComponent } from './components/activity-definitions/edit-definition/edit-definition.component';
+import { UserDetailsComponent } from './components/users/user-details/user-details.component';
+import { EditUserComponent } from './components/users/edit-user/edit-user.component';
+import { EventDefinitionComponent } from './components/event-definition/event-definition.component';
+import { CreateEventComponent } from './components/event-definition/create-event/create-event.component';
 
 const ROUTES = [
   {path:'home',component : HomeComponent},
@@ -67,7 +71,11 @@ const ROUTES = [
     ActivityDefinitionsComponent,
     CreateDefinitionComponent,
     DefinitionDetailsComponent,
-    EditDefinitionComponent
+    EditDefinitionComponent,
+    UserDetailsComponent,
+    EditUserComponent,
+    EventDefinitionComponent,
+    CreateEventComponent
   ],
   imports: [
     RouterModule.forRoot(ROUTES),
