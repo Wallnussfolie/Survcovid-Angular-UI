@@ -1,26 +1,32 @@
-<h3 style="text-align: center;">Account info</h3>
+<h2 style="text-align: center;margin-top: 20px;">Account info</h2>
 
 <div>
-    <table>
+    <table style="width: 100%;">
         <tr>
-            <td><p><b>Username:</b> {{user.username}}</p></td>
-            <td><button mat-button color="primary">Edit</button></td>
+            <td><b>Username:</b></td>
+            <td>{{user.username}}</td>
+            <td><button mat-raised-button color="primary">Change</button></td>
         </tr>
         <tr>
-            <td><p><b>Email:</b> {{user.email}}</p></td>
-            <td><button mat-button color="primary">Edit</button></td>
+            <td><b>Email:</b></td>
+            <td>{{user.email}}</td>
+            <td><button mat-raised-button color="primary">Change</button></td>
         </tr>
         <tr>
-            <p><b>Last login:</b> {{user.lastlogin | date}}</p>
+            <td><b>Password</b></td>
+            <td>******</td>
+            <td><button mat-raised-button [routerLink]="['/profile/changePassword']" color="primary">Change</button></td>
+        </tr>
+        <tr>
+            <td><b>Last login:</b></td>
+            <td>{{user.lastlogin | date:'medium'}}</td>
+        </tr>
+        <tr>
+            <td><b>Account state</b></td>
+            <td>{{accountStateText}}</td>
         </tr>
     </table>
-    
-    
-    
 </div>
-
 <mat-divider class="profile-divider"></mat-divider>
 
-<div>
-    <p><b>Account state:</b> {{accountStateText}}</p>
-</div>
+

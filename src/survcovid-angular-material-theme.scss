@@ -1,0 +1,28 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+/* ======== Angular material custom themes ======== */  
+$survcovid-primary: mat-palette($mat-green,800); // #2E7D32
+$survcovid-accent: mat-palette($mat-yellow,800); // #F9A825
+$survcovid-warn: mat-palette($mat-orange,800); // #EF6C00
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Roboto, monospace',
+);
+
+/* does not work, don't know why yet */ 
+$survcovid-foreground-theme: (
+    base:              #2E7D32,
+    text:              #2E7D32,
+    hint-text:         #2E7D32,
+    secondary-text:    #2E7D32,
+    divider:           #2E7D32,
+    dividers:          #2E7D32
+);
+
+$survcovid-custom-theme: mat-light-theme($survcovid-primary, $survcovid-accent, $survcovid-warn);
+
+$survcovid-custom-theme: map-merge($survcovid-custom-theme, (foreground: $survcovid-foreground-theme));
+
+@include angular-material-theme($survcovid-custom-theme);
+@include angular-material-typography($custom-typography);
