@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { MatDialog } from '@angular/material/dialog';
+import { ChangePasswordDialogComponent } from '../change-password-dialog/change-password-dialog.component';
+
 @Component({
   selector: 'profile-account-view',
   templateUrl: './profile-account-view.component.html',
@@ -7,7 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProfileAccountViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   public accountStateText: string = "";
 
@@ -22,6 +25,17 @@ export class ProfileAccountViewComponent implements OnInit {
     } else {
       this.accountStateText = "Deactivated";
     }
+  }
+
+  openChangePasswordDialog(): void {
+
+    let changePasswordDialog = this.dialog.open(ChangePasswordDialogComponent,{
+      data: {
+        
+      },
+      height: '200px',
+      width: '300px'
+    });
 
   }
 

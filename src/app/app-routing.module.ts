@@ -19,6 +19,7 @@ import { CreateDefinitionComponent}  from './components/activity-definitions/cre
 import { DefinitionDetailsComponent } from './components/activity-definitions/definition-details/definition-details.component';
 import { EditDefinitionComponent } from './components/activity-definitions/edit-definition/edit-definition.component';
 import { AdminGuard } from './admin.guard';
+import { ChangePasswordDialogComponent } from './components/profile/change-password-dialog/change-password-dialog.component';
 
 
 const routes: Routes = [
@@ -64,6 +65,10 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
+      },
+      {
+        path: 'profile/changePassword',
+        component: ChangePasswordDialogComponent
       }
     ]
   },
