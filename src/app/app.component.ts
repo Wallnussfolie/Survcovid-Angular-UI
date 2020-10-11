@@ -1,11 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from './services/token-storage.service';
-import {ActivatedRoute} from '@angular/router'; 
+import {ActivatedRoute, RouterOutlet} from '@angular/router'; 
+import { slideInAnimation } from './shared/animations/SlideInAnimation';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [
+    slideInAnimation,
+  ]
 })
 export class AppComponent implements OnInit{
 
@@ -43,6 +47,15 @@ export class AppComponent implements OnInit{
   logout() {
     this.tokenStorageService.signOut();
     window.location.reload();
+  }
+
+  /**
+   * This method detects when a route change happens. 
+   * 
+   * @param outlet 
+   */
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 
 }

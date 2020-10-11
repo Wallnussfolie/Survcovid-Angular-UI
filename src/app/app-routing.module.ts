@@ -32,7 +32,13 @@ const routes: Routes = [
         component: HomeComponent,
         pathMatch: 'full'
       },
-      {path : 'smart-phone-menu',component:SmartPhoneMenuComponent},
+      {
+        path : 'smart-phone-menu',
+        component:SmartPhoneMenuComponent,
+        data: {
+          animation: "SmartphoneMenu"
+        }
+      },
       {
         path: 'myInventory',
         component: InventoryComponent,
@@ -64,7 +70,10 @@ const routes: Routes = [
       },
       {
         path: 'profile',
-        component: ProfileComponent
+        component: ProfileComponent,
+        data: {
+          animation: 'AppView'
+        }
       },
       {
         path: 'profile/changePassword',

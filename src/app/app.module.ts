@@ -38,6 +38,7 @@ import { SharedModule } from './shared/shared.module';
 import { ProfileAccountViewComponent } from './components/profile/profile-account-view/profile-account-view.component';
 import { ProfileGameViewComponent } from './components/profile/profile-game-view/profile-game-view.component';
 import { ChangePasswordDialogComponent } from './components/profile/change-password-dialog/change-password-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const ROUTES = [
   {path:'home',component : HomeComponent},
@@ -78,12 +79,8 @@ const ROUTES = [
   ],
   imports: [
     RouterModule.forRoot(ROUTES),
-    BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [InventoryService, authInterceptorProviders],
   bootstrap: [AppComponent]
