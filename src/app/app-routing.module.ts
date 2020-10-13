@@ -23,6 +23,7 @@ import { UserDetailsComponent } from './components/users/user-details/user-detai
 import { EditUserComponent } from './components/users/edit-user/edit-user.component';
 import { EventDefinitionComponent } from './components/event-definition/event-definition.component';
 import { CreateEventComponent } from './components/event-definition/create-event/create-event.component';
+import { ChangePasswordDialogComponent } from './components/profile/change-password-dialog/change-password-dialog.component';
 
 const routes: Routes = [
 
@@ -67,6 +68,10 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
+      },
+      {
+        path: 'profile/changePassword',
+        component: ChangePasswordDialogComponent
       }
     ]
   },

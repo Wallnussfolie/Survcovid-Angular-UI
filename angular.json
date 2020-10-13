@@ -31,7 +31,8 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/survcovid-angular-material-theme.scss"
             ],
             "scripts": []
           },
