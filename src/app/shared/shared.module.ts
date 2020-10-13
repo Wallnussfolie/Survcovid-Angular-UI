@@ -5,7 +5,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { MatGridListModule } from '@angular/material/grid-list'; 
-
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -15,14 +17,21 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatDividerModule,
     MatButtonModule,
     MatTabsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
+
   ],
   exports: [
     MatDividerModule,
     MatButtonModule,
     MatTabsModule,
     BrowserAnimationsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class SharedModule { }
