@@ -1,10 +1,15 @@
-<h3>This is your profile page</h3>
-<hr>
+<div class="profile-page-div">
+    <h2>Welcome {{user.username}}</h2>
+</div>
 
+<div class="profile-page-div">
+    <mat-tab-group>
+        <mat-tab label="Acount"><profile-account-view [user]="user"></profile-account-view></mat-tab>
+        <mat-tab label="Game"><profile-game-view></profile-game-view></mat-tab>
+    </mat-tab-group>
+</div>
 
-<p><b>Username:</b> {{user.username}}</p>
-<p><b>Email:</b> {{user.email}}</p>
-<p><b>Last login:</b> {{user.lastlogin}}</p>
+<div class="profile-page-div">
+    <button mat-raised-button color="primary" style="width: 100%;">Delete account</button>
+</div>
 
-<hr>
-<p><b>Account state:</b> {{user.isActiveAccount}}</p>

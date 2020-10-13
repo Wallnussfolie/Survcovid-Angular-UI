@@ -38,6 +38,9 @@ import { UserDetailsComponent } from './components/users/user-details/user-detai
 import { EditUserComponent } from './components/users/edit-user/edit-user.component';
 import { EventDefinitionComponent } from './components/event-definition/event-definition.component';
 import { CreateEventComponent } from './components/event-definition/create-event/create-event.component';
+import { SharedModule } from './shared/shared.module';
+import { ProfileAccountViewComponent } from './components/profile/profile-account-view/profile-account-view.component';
+import { ProfileGameViewComponent } from './components/profile/profile-game-view/profile-game-view.component';
 
 const ROUTES = [
   {path:'home',component : HomeComponent},
@@ -75,7 +78,9 @@ const ROUTES = [
     UserDetailsComponent,
     EditUserComponent,
     EventDefinitionComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    ProfileAccountViewComponent,
+    ProfileGameViewComponent,
   ],
   imports: [
     RouterModule.forRoot(ROUTES),
@@ -83,7 +88,8 @@ const ROUTES = [
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [InventoryService, authInterceptorProviders],
   bootstrap: [AppComponent]
