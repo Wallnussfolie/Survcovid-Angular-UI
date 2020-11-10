@@ -29,12 +29,8 @@ export class ActivityDefinitionsService {
 
   public update(definitionId, definition)
   {
-    return this.http.put('/server/api/v1/activityDefinitions/'+definitionId, {
-      activityDefinitionId: definitionId,
-      activityDefinitionName: definition.activityDefinitionName,
-      activityDefinitionDescription: definition.activityDefinitionDescription,
-      activityDefinitionEffort: definition.activityDefinitionEffort
-    });
+    console.log(definition);
+    return this.http.put('/server/api/v1/activityDefinitions/'+definitionId, definition);
   }
 
   public del(definitionId)

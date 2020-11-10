@@ -24,7 +24,7 @@ import { SmartWatchComponent } from './components/smart-watch/smart-watch.compon
 import { SmartPhoneMenuComponent } from './components/smart-phone-menu/smart-phone-menu.component';
 import { RouterModule } from '@angular/router';
 import { LogoutComponent } from './components/logout/logout.component';
-import { ShopComponent } from './components/shop/shop.component';
+import { ShopComponent, BuyItemDialog } from './components/shop/shop.component';
 import { EventsComponent } from './components/events/events.component';
 import { ActivitiesComponent } from './components/activities/activities.component';
 import { AdminComponent } from './components/admin/admin.component';
@@ -83,6 +83,7 @@ const ROUTES = [
     ProfileAccountViewComponent,
     ProfileGameViewComponent,
     ChangePasswordDialogComponent,
+    BuyItemDialog
   ],
   imports: [
     RouterModule.forRoot(ROUTES),
@@ -94,6 +95,7 @@ const ROUTES = [
     SharedModule
   ],
   providers: [InventoryService, authInterceptorProviders],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [BuyItemDialog]
 })
 export class AppModule { }

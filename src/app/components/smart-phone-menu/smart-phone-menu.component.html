@@ -1,51 +1,43 @@
-<div>
-    <div class="row pt-3">
-      <div class="col text-center">
-        <a [routerLink]="['/news']" class="text-success">
-          <p><span class="fas fa-newspaper fa-4x"></span></p>
-          <p>News</p>
-        </a>
-      </div>
-
-      <div class="col text-center">
-        <a [routerLink]="['/calendar']" class="text-success">
-          <p><span class="fas fa-calendar-alt fa-4x"></span></p>
-          <p i18n>Calendar</p>
-        </a>
-      </div>
-
-      <div class="col text-center">
-        <a [routerLink]="['/activities']" class="text-success">
-          <p><span class="fas fa-running fa-4x"></span></p>
-          <p i18n>Activities</p>
-        </a>
-      </div>
-
-      <div class="col text-center">
-        <a [routerLink]="['/myInventory']" class="text-success">
-          <p><span class="fas fa-boxes fa-4x"></span></p>
-          <p i18n>Storage</p>
-        </a>
-      </div>
-
-      <div class="col text-center">
-        <a class="text-success" [routerLink]="['/shop']">
-          <p><span class="fas fa-shopping-cart fa-4x"></span></p>
-          <p i18n>Shop</p>
-        </a>
-      </div>
-
-      <div class = "col text-center">
-        <a [routerLink]="['/profile']" class="text-success">
-          <p><span class="fas fa-user fa-4x"></span></p>
-          <p i18n>Profile</p>
-        </a>
-      </div>
-      <div class="col text-center">
-        <a class="text-success" [routerLink]="['/events']">
-          <p><span class="fas fa-star fa-4x"></span></p>
-          <p i18n>Events</p>
-        </a>
-      </div>
-    </div>
-</div>
+<mat-grid-list cols="3">
+  <mat-grid-tile>
+    <a [routerLink]="['/news']" class="text-success">
+    <mat-icon [inline]="true">announcement</mat-icon>
+    <p>News</p></a>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <a [routerLink]="['/calendar']" class="text-success">
+      <mat-icon [inline]="true">event_note</mat-icon>
+      <p>Calendar</p>
+    </a>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <a [routerLink]="['/activities']" class="text-success">
+      <mat-icon [inline]="true">directions_run</mat-icon> 
+     <p>Activities</p>
+    </a>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <a [routerLink]="['/myInventory']" class="text-success">
+    <mat-icon [inline]="true">kitchen</mat-icon>
+    <p>Storage</p>
+    </a>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <a [routerLink]="['/shop']" class="text-success">
+    <mat-icon [inline]="true">local_grocery_store</mat-icon>
+    <p>Shop</p>
+    </a>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <a [routerLink]="['/profile']" class="text-success">
+    <mat-icon [inline]="true">account_box</mat-icon>
+    <p>Profile</p>
+  </a>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <a [routerLink]="['/events']" class="text-success">
+    <mat-icon [inline]="true">grade</mat-icon>
+    <p>Events</p>
+    </a>
+  </mat-grid-tile>
+</mat-grid-list>

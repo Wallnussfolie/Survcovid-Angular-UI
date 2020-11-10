@@ -1,10 +1,20 @@
 <div class="smart-watch text-success">
     <div class="watch-content">
       <div *ngIf="isLoggedIn">
-        <p><span class="fas fa-heartbeat fa-4x"></span>
-        <span class="fas fa-brain fa-4x"></span></p>
-        <p><span class="fas fa-users fa-4x"></span>
-        <span class="fas fa-coins fa-4x"></span></p>
+       <mat-grid-list cols="2" rowHeight="6em">
+        <mat-grid-tile>
+          <p><mat-icon [inline]="true">favorite</mat-icon></p>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <p><mat-icon [inline]="true">psychology</mat-icon></p>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <p><mat-icon [inline]="true">group</mat-icon></p>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <p><mat-icon [inline]="true">payments</mat-icon></p>
+        </mat-grid-tile>
+      </mat-grid-list>
         <p><a [routerLink]="['/logout']" class="text-success">Logout</a></p>
         <p *ngIf="showAdminBoard"><a [routerLink]="['/admin']" class="text-success">Admin-Board</a></p>
       </div>

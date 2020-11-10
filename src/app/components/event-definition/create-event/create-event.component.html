@@ -4,84 +4,115 @@
     #f="ngForm"
     novalidate
   >
-  <div class="form-group">
-    <label for="shortTitle">Short title</label>
-    <input 
+  <p>
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Short title</mat-label>
+    <input
+        matInput 
         type="text"
         name="shortTitle"
-        class="form-control"
         [(ngModel)]="event.shortTitle"
         required
         #shortTitle="ngModel" 
-      >
-  </div>
-  <div class="form-group">
-    <label for="description">Description</label>
-    <textarea
-        name="description"
-        class="form-control"
-        [(ngModel)]="event.description"
-        required
-        #description="ngModel"
-      ></textarea>
-  </div>
-  <div class="form-group">
-    <label for="gameEventDefinitionType">Type</label>
-    <select
-        name="gameEventDefinitionType"
-        class="form-control"
-        [(ngModel)]="event.gameEventDefinitionType"
-        #gameEventDefinitionType="ngModel"
-      >
-        <option>STORY_EVENT</option>
-        <option>GENERIC_EVENT</option>
-      </select>
-  </div>
-  <h4>Choices</h4>
-  <div class="form-group">
-    <input 
-        *ngFor="let choice of choices; let i=index"
-        type="text"
-        class="form-control"
-        name="choice_description[{{ i }}]"
-        [(ngModel)]="choice.description"
-        #choice_description[i]="ngModel">
-  </div>
-    <button class="btn btn-success" (click)="createChoice()" type="button">+</button>
-  <h4>Requirements</h4>
-  <div *ngFor="let requirement of requirements; let i=index">
-    <div class="form-group">
-      <label for="requiredGameEventDefinitionId">Event</label>
-      <select
-          name="requiredGameEventDefinitionId[{{ i }}]"
-          class="form-control"
-          [(ngModel)]="requirement.requiredGameEventDefinitionId">
-            <option *ngFor="let event of events" value="{{ event.id }}" (click)="changeEvent(event, i)">{{ event.shortTitle }}</option>
-        </select>
-    </div>
-    <div class="form-group" *ngIf="requirement.eventDefinition">
-      <label for="gameEventChoiceId">Choice</label>
-      <select
-          name="gameEventChoiceId[{{ i }}]"
-          class="form-control"
-          [(ngModel)]="requirement.gameEventChoiceId"      
-      >
-      <option (click)="changeChoice(null, i)">Any</option>
-      <option *ngFor="let choice of requirement.eventDefinition.gameEventChoices" value="{{ choice.id }}" (click)="changeChoice(choice, i)">{{ choice.description }}</option>
-      </select>
-    </div>
-    <div class="form-group" *ngIf="requirement.eventDefinition">
-      <label for="type">Type</label>
-      <select
-          name="type[{{ i }}]"
-          class="form-control"
-          [(ngModel)]="requirement.type"
-      >
-        <option>HAS_HAPPENED</option>
-        <option>HAS_NOT_HAPPENED</option>
-      </select>
-    </div>
-  </div>
-    <button class="btn btn-success" (click)="createRequirement()" type="button">+</button>
-    <button class="btn btn-primary">Create</button>
+      />
+    <mat-error *ngIf="shortTitle?.invalid">
+      <div *ngIf="shortTitle.errors.required">Title is required</div>
+    </mat-error>
+  </mat-form-field>
+</p>
+<p>
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Description</mat-label>
+      <textarea
+          matInput
+          name="description"
+          [(ngModel)]="event.description"
+          required
+          #description="ngModel"
+        ></textarea>
+      <mat-error *ngIf="description?.invalid">
+        <div *ngIf="description.errors.required">Description is required</div>
+      </mat-error>
+    </mat-form-field>
+</p>
+<p>
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Type</mat-label>
+      <mat-select
+          name="gameEventDefinitionType"
+          [(ngModel)]="event.gameEventDefinitionType"
+          #gameEventDefinitionType="ngModel"
+          required
+        >
+          <mat-option value="STORY_EVENT">STORY_EVENT</mat-option>
+          <mat-option value="GENERIC_EVENT">GENERIC_EVENT</mat-option>
+        </mat-select>
+    </mat-form-field>
+</p>
+  <h3>Choices</h3>
+  <p *ngFor="let choice of choices; let i=index" class="w-100">
+    <mat-form-field appearance="outline" class="w-75">
+      <mat-label>Choice #{{ i + 1 }}</mat-label>
+      <input
+          matInput
+          type="text"
+          name="choice_description[{{ i }}]"
+          [(ngModel)]="choice.description"
+          #choice_description[i]="ngModel" />
+  </mat-form-field>
+  <button mat-mini-fab color="warn" type="button" class="ml-2" (click)="delChoice(i)">
+    <mat-icon>clear</mat-icon>
+  </button>
+</p>
+    <button mat-mini-fab color="primary" (click)="createChoice()" type="button">
+      <mat-icon>add</mat-icon>
+    </button>
+  <h3>Requirements</h3>
+    <mat-grid-list *ngFor="let requirement of requirements; let i=index" cols="2" rowHeight="7em">
+      <mat-grid-tile>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Event</mat-label>
+          <mat-select
+              name="requiredGameEventDefinitionId[{{ i }}]"
+              [(ngModel)]="requirement.requiredGameEventDefinitionId">
+                <mat-option *ngFor="let event of events" [value]="event.id" (click)="changeEvent(event, i)">{{ event.shortTitle }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile rowspan="3">
+        <button mat-mini-fab color="warn" type="button" (click)="delRequirement(i)">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-grid-tile>
+      <mat-grid-tile *ngIf="requirement.eventDefinition">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Choice</mat-label>
+            <mat-select
+                name="gameEventChoiceId[{{ i }}]"
+                [(ngModel)]="requirement.gameEventChoiceId"      
+            >
+            <mat-option (click)="changeChoice(-1, i)" value="-1">Any</mat-option>
+            <mat-option *ngFor="let choice of requirement.eventDefinition.gameEventChoices" [value]="choice.id" (click)="changeChoice(choice, i)">{{ choice.description }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile *ngIf="requirement.eventDefinition">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label for="type">Type</mat-label>
+            <mat-select
+                name="type[{{ i }}]"
+                [(ngModel)]="requirement.type"
+            >
+              <mat-option value="HAS_HAPPENED">HAS_HAPPENED</mat-option>
+              <mat-option value="HAS_NOT_HAPPENED">HAS_NOT_HAPPENED</mat-option>
+            </mat-select>
+          </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <button mat-mini-fab (click)="createRequirement()" color="primary" type="button">
+      <mat-icon>add</mat-icon>
+    </button>
+    <p>
+      <button mat-raised-button color="primary" class="mt-3">Create</button>
+    </p>
 </form>

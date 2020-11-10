@@ -5,11 +5,12 @@
       #f="ngForm"
       novalidate
     >
-      <div class="form-group">
-        <label for="activityDefinitionName">Name</label>
+    <p>     
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Name</mat-label>
         <input
+          matInput
           type="text"
-          class="form-control"
           name="activityDefinitionName"
           [(ngModel)]="form.activityDefinitionName"
           required
@@ -17,7 +18,7 @@
           maxlength="50"
           #activityDefinitionName="ngModel"
         />
-        <div class="alert-danger" *ngIf="f.submitted && activityDefinitionName.invalid">
+        <mat-error *ngIf="activityDefinitionName?.invalid">
           <div *ngIf="activityDefinitionName.errors.required">Name is required</div>
           <div *ngIf="activityDefinitionName.errors.minlength">
             Name must be at least 3 characters
@@ -25,39 +26,44 @@
           <div *ngIf="activityDefinitionName.errors.maxlength">
             Name must be at most 50 characters
           </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="activityDefinitionDescription">Description</label>
-        <input
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
           type="activityDefinitionDescription"
-          class="form-control"
           name="activityDefinitionDescription"
           [(ngModel)]="form.activityDefinitionDescription"
           required
           activityDefinitionDescription
-          #activityDefinitionDescription="ngModel"
-        />
-        <div class="alert-danger" *ngIf="f.submitted && activityDefinitionDescription.invalid">
+          #activityDefinitionDescription="ngModel">
+        </textarea>
+        <mat-error *ngIf="activityDefinitionDescription?.invalid">
           <div *ngIf="activityDefinitionDescription.errors.required">Description is required</div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="activityDefinitionEffort">Effort</label>
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Effort</mat-label>
         <input
+          matInput
           type="number"
-          class="form-control"
           name="activityDefinitionEffort"
           [(ngModel)]="form.activityDefinitionEffort"
           required
           #activityDefinitionEffort="ngModel"
         />
-        <div class="alert-danger" *ngIf="f.submitted && activityDefinitionEffort.invalid">
+        <mat-error *ngIf="activityDefinitionEffort?.invalid">
           <div *ngIf="activityDefinitionEffort.errors.required">Effort is required</div>
-        </div>
-      </div>
+        </mat-error>
+      </mat-form-field>
+    </p>
       <div class="form-group">
-        <button class="btn btn-primary btn-block">Create</button>
+        <button mat-raised-button color="primary" class="w-100">Create</button>
       </div>
 
       <div class="alert alert-warning" *ngIf="f.submitted && isFailed">

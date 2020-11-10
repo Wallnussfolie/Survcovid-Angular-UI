@@ -21,7 +21,10 @@ export class UserDetailsComponent implements OnInit {
   getUser(id)
   {
     this.userService.getUser(id).subscribe(
-      data => this.user = data,
+      (data: any) => {
+        this.user = data.data[0];
+        console.log(data.data);
+      },
       err => console.log(err),
       () => console.log('user loaded')
       );

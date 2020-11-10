@@ -38,6 +38,11 @@ export class CreateEventComponent implements OnInit {
     this.choices.push({data: "", description: "", id: -1});
   }
 
+  delChoice(i)
+  {
+    this.choices.splice(i, 1);
+  }
+
   createRequirement()
   {
     this.requirements.push({
@@ -60,6 +65,11 @@ export class CreateEventComponent implements OnInit {
     }
     this.requirements[i].choice = choice;
     console.log(this.requirements);
+  }
+
+  delRequirement(i)
+  {
+    this.requirements.splice(i, 1);
   }
 
   onSubmit()

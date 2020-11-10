@@ -1,5 +1,7 @@
-<div *ngFor="let definition of definitions">
-  <h3>{{ definition.activityDefinitionName }}</h3>
-  <p>{{ definition.activityDefinitionDescription }}</p>
-  <button class="btn btn-success" (click)="createActivity(definition)">Execute</button>
-</div>
+<mat-card *ngFor="let definition of definitions" class="m-2">
+  <mat-card-title>{{ definition.activityDefinitionName }}</mat-card-title>
+  <mat-card-content>{{ definition.activityDefinitionDescription }}</mat-card-content>
+  <mat-card-footer class="p-2">
+    <button mat-raised-button color="primary" (click)="createActivity(definition)">Execute</button>
+  </mat-card-footer>
+</mat-card>

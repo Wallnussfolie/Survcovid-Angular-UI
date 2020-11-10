@@ -2,31 +2,54 @@
 
 <p><a [routerLink]="['/admin/events/create']">Create new event</a></p>
 
-<table class="table table-striped">
-  <tr>
-    <th>ID</th>
-    <th>Short title</th>
-    <th>Description</th>
-    <th>Type</th>
-    <th>Choices</th>
-    <th>Requirements</th>
-  </tr>
-  <tr *ngFor="let event of events">
-    <td>{{ event.id }}</td>
-    <td>{{ event.shortTitle }}</td>
-    <td>{{ event.description }}</td>
-    <td>{{ event.gameEventDefinitionType }}</td>
-    <td>
-      <ul>
-        <li *ngFor="let choice of event.gameEventChoices">
+<mat-table [dataSource]="events" matSort>
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+    <mat-cell *matCellDef="let event">{{ event.id }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="shortTitle">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Short title</mat-header-cell>
+    <mat-cell *matCellDef="let event">{{ event.shortTitle }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+    <mat-cell *matCellDef="let event">{{ event.description }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="gameEventDefinitionType">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Type</mat-header-cell>
+    <mat-cell *matCellDef="let event">{{ event.gameEventDefinitionType }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="choices">
+    <mat-header-cell *matHeaderCellDef>Choices</mat-header-cell>
+    <mat-cell *matCellDef="let event">
+      <mat-list>
+        <mat-list-item *ngFor="let choice of event.gameEventChoices">
+        <mat-icon mat-list-icon>chevron_right</mat-icon>
           {{ choice.description }}
-        </li>
-      </ul>
-    </td>
-    <td>
-      <ul>
-        <li *ngFor="let requirement of event.requirements">{{ requirement.requiredGameEventDefinitionShortTitle }} &raquo; {{ requirement.gameEventChoiceDescription }} &raquo; {{ requirement.type }}</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+        </mat-list-item>
+      </mat-list>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="requirements">
+    <mat-header-cell *matHeaderCellDef>Requirements</mat-header-cell>
+    <mat-cell *matCellDef="let event">
+      <mat-list>
+        <mat-list-item *ngFor="let requirement of event.requirements">
+          <mat-icon mat-list-icon *ngIf="requirement.type == 'HAS_HAPPENED'">done</mat-icon>
+          <mat-icon mat-list-icon *ngIf="requirement.type != 'HAS_HAPPENED'" color="warn">clear</mat-icon>
+          {{ requirement.requiredGameEventDefinitionShortTitle }} &raquo; {{ requirement.gameEventChoiceDescription }} &raquo; {{ requirement.type }}
+        </mat-list-item>
+      </mat-list>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

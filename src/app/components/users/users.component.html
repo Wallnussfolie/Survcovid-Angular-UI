@@ -1,12 +1,21 @@
-<table class="table table-striped">
-  <tr>
-    <th i18n>ID</th>
-    <th i18n>Name</th>
-    <th i18n>E-Mail</th>
-  </tr>
-  <tr *ngFor="let user of users">
-    <td>{{ user.userId }}</td>
-    <td><a [routerLink]="['/admin/users', user.userId]">{{ user.userName }}</a></td>
-    <td>{{ user.email }}</td>
-  </tr>
-</table>
+<mat-table [dataSource]="users" matSort>
+  <ng-container matColumnDef="userId">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+    <mat-cell *matCellDef="let user">{{ user.userId }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="userName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+    <mat-cell *matCellDef="let user"><a [routerLink]="['/admin/users', user.userId]">{{ user.userName }}</a></mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>E-Mail</mat-header-cell>
+    <mat-cell *matCellDef="let user">{{ user.email }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

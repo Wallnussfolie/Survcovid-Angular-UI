@@ -13,6 +13,7 @@
     width:24vh;
     height:26vh;
     text-align:center;
+    overflow: auto;
   }
   
   .watch-content .fas {
@@ -30,4 +31,8 @@
     .watch-content {
       font-size:0.8em;
     }
+  }
+
+  .mat-grid-tile .mat-icon {
+    font-size:4em;
   }

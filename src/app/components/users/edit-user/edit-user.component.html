@@ -5,115 +5,128 @@
       #f="ngForm"
       novalidate
     >
-  <div class="form-group">
-    <label for="userName" i18n>Name</label>
-    <input
-      type="text"
-      class="form-control"
-      name="userName"
-      [(ngModel)]="user.userName"
-      required
-      minlength="3"
-      maxlength="20"
-      #userName="ngModel"
-    />
-    <div class="alert-danger" *ngIf="f.submitted && userName.invalid">
-      <div *ngIf="userName.errors.required" i18n>Name is required</div>
-      <div *ngIf="userName.errors.minlength" i18n>
-        Name must be at least 3 characters
-      </div>
-      <div *ngIf="userName.errors.maxlength" i18n>
-        Name must be at most 20 characters
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="email" i18n>E-Mail</label>
-    <input
-      type="email"
-      class="form-control"
-      name="email"
-      [(ngModel)]="user.email"
-      required
-      #email="ngModel"
-    />
-    <div class="alert-danger" *ngIf="f.submitted && user.email.invalid">
-      <div *ngIf="email.errors.required" i18n>E-Mail is required</div>
-      <div i18n>E-Mail is invalid</div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="password" i18n>Password</label>
-    <input
-      type="password"
-      class="form-control"
-      name="password"
-      minlength="6"
-      [(ngModel)]="user.new_password"
-      #new_password="ngModel"
-    />
-    <div class="alert-danger" *ngIf="f.submitted && user.new_password.invalid">
-      <div *ngIf="user.new_password.errors.minlength" i18n>
-        Password must be at least 6 characters
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="active" i18n>Active</label>
-    <select
-      class="form-control"
-      name="userState.active"
-      [(ngModel)]="user.userState.active"
-      required
-      #userState.active="ngModel"
-    >
-      <option [value]="true" i18n>Yes</option>
-      <option [value]="false" i18n>No</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="gameState.playerAccountBalance" i18n>Account balance</label>
-    <input
-      type="number"
-      class="form-control"
-      name="gameState.playerAccountBalance"
-      [(ngModel)]="user.gameState.playerAccountBalance"
-      required
-      #gameState.playerAccountBalance="ngModel"
-    />
-    <div class="alert-danger" *ngIf="f.submitted && gameState.playerAccountBalance.invalid">
-      <div *ngIf="gameState.playerAccountBalance.errors.required" i18n>Account balance is required</div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="gameState.playerFitness" i18n>Fitness</label>
-    <input
-      type="number"
-      class="form-control"
-      name="gameState.playerFitness"
-      [(ngModel)]="user.gameState.playerFitness"
-      required
-      #gameState.playerFitness="ngModel"
-    />
-    <div class="alert-danger" *ngIf="f.submitted && gameState.playerFitness.invalid">
-      <div *ngIf="gameState.playerFitness.errors.required" i18n>Fitness is required</div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="gameState.playerHealth" i18n>Health</label>
-    <input
-      type="number"
-      class="form-control"
-      name="gameState.playerHealth"
-      [(ngModel)]="user.gameState.playerHealth"
-      required
-      #gameState.playerHealth="ngModel"
-    />
-    <div class="alert-danger" *ngIf="f.submitted && gameState.playerHealth.invalid">
-      <div *ngIf="gameState.playerHealth.errors.required" i18n>Health is required</div>
-    </div>
-  </div>
-  <button class="btn btn-success btn-block" i18n>Save</button>
+    <p>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label i18n>Name</mat-label>
+        <input
+          type="text"
+          name="userName"
+          [(ngModel)]="user.userName"
+          required
+          minlength="3"
+          maxlength="20"
+          #userName="ngModel"
+          matInput
+        />
+        <mat-error *ngIf="userName?.invalid">
+          <div *ngIf="userName.errors.required">User name is required</div>
+          <div *ngIf="userName.errors.minlength">Name must be at least 3 characters</div>
+          <div *ngIf="userName.errors.maxlength">Name must be at most 20 characters</div>
+        </mat-error>
+      </mat-form-field>
+      
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label i18n>E-Mail</mat-label>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="user.email"
+          required
+          #email="ngModel"
+          [pattern]="emailPattern"
+          matInput
+        />
+        <mat-error *ngIf="email?.invalid">
+          <div *ngIf="email.errors.required" i18n>E-Mail is required</div>
+          <div *ngIf="email.errors.pattern" i18n>E-Mail is invalid</div>
+        </mat-error>
+      </mat-form-field>
+      
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          name="password"
+          minlength="6"
+          [(ngModel)]="user.password"
+          #new_password="ngModel"
+          matInput
+        />
+        <mat-error *ngIf="user.password.invalid">
+          <div *ngIf="user.password.errors.minlength" i18n>
+            Password must be at least 6 characters
+          </div>
+        </mat-error>
+      </mat-form-field>
+      
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label i18n>Active</mat-label>
+        <mat-select
+          name="userState.active"
+          [(ngModel)]="user.userState.active"
+          required
+          #userState.active="ngModel">
+          <mat-option [value]="true">Yes</mat-option>
+          <mat-option [value]="false">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label i18n>Account balance</mat-label>
+        <input
+          matInput
+          type="number"
+          name="playerAccountBalance"
+          [(ngModel)]="user.gameState.playerAccountBalance"
+          required
+          #playerAccountBalance="ngModel"
+        />
+        <mat-error *ngIf="playerAccountBalance?.invalid">
+          <div *ngIf="playerAccountBalance.errors.required" i18n>Account balance is required</div>
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label i18n>Fitness</mat-label>
+        <input
+          matInput
+          type="number"
+          name="playerFitness"
+          [(ngModel)]="user.gameState.playerFitness"
+          required
+          #playerFitness="ngModel"
+        />
+        <mat-error *ngIf="playerFitness?.invalid">
+          <div *ngIf="playerFitness.errors.required" i18n>Fitness is required</div>
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label i18n>Health</mat-label>
+        <input
+          matInput
+          type="number"
+          name="playerHealth"
+          [(ngModel)]="user.gameState.playerHealth"
+          required
+          #playerHealth="ngModel"
+        />
+        <mat-error class="alert-danger" *ngIf="playerHealth?.invalid">
+          <div *ngIf="playerHealth.errors.required" i18n>Health is required</div>
+        </mat-error>
+      </mat-form-field>
+      
+    </p>
+  <button mat-raised-button color="primary" class="w-100" i18n>Save</button>
 </form>
       <div class="alert alert-warning" *ngIf="isFailed" i18n>
         Update failed!<br />{{ errorMessage }}

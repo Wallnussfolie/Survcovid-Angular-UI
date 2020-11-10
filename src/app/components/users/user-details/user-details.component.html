@@ -1,60 +1,57 @@
 <div *ngIf="user">
-  <h4>{{ user.userName }}</h4>
+  <h2>{{ user.userName }}</h2>
 
-  <table class="table table-striped">
-    <tr>
-      <th>ID</th>
-      <td>{{ user.userId }}</td>
+  <table class="mat-table" width="100%">
+    <tr class="mat-row">
+      <th class="mat-header-cell">ID</th>
+      <td class="mat-cell">{{ user.userId }}</td>
     </tr>
-    <tr>
-      <th>E-Mail</th>
-      <td>{{ user.email }}</td>
+    <tr class="mat-row">
+      <th class="mat-header-cell">E-Mail</th>
+      <td class="mat-cell">{{ user.email }}</td>
     </tr>
-    <tr>
-      <th>Roles</th>
-      <td>
-        <ul>
-          <li *ngFor="let role of user.roles">{{ role.name }}</li>
-        </ul>
+    <tr class="mat-row">
+      <th class="mat-header-cell">Roles</th>
+      <td class="mat-cell">
+        <mat-list>
+          <mat-list-item *ngFor="let role of user.roles">{{ role.name }}</mat-list-item>
+        </mat-list>
       </td>
     </tr>
-    <tr>
-      <th colspan="2"><h5>User state</h5></th>
+    <tr class="mat-row">
+      <th colspan="2" class="mat-header-cell"><h3>User state</h3></th>
     </tr>
-    <tr>
-      <th>Last login</th>
-      <th>{{ user.userState.lastLogin }}</th>
+    <tr class="mat-row">
+      <th class="mat-header-cell">Last login</th>
+      <td class="mat-cell">{{ user.userState.lastLogin }}</td>
     </tr>
-    <tr>
-      <th>Is active</th>
-      <th>
-        <span class="fas fa-check" *ngIf="user.userState.active"></span>
-        <span class="fas fa-times" *ngIf="!user.userState.active"></span>
-      </th>
+    <tr class="mat-row">
+      <th class="mat-header-cell">Is active</th>
+      <td class="mat-cell">
+        <mat-icon *ngIf="user.userState.active">done</mat-icon>
+        <mat-icon *ngIf="!user.userState.active" color="warn">clear</mat-icon>
+      </td>
     </tr>
-    <tr>
-      <th colspan="2"><h5>Game state</h5></th>
+    <tr class="mat-row">
+      <th colspan="2" class="mat-header-cell"><h3>Game state</h3></th>
     </tr>
-    <tr>
-      <th>Ingame date</th>
-      <td>{{ user.gameState.ingameDate }}</td>
+    <tr class="mat-row">
+      <th class="mat-header-cell">Ingame date</th>
+      <td class="mat-cell">{{ user.gameState.ingameDate }}</td>
     </tr>
-    <tr>
-      <th>Health</th>
-      <td>{{ user.gameState.playerHealth }}</td>
+    <tr class="mat-row">
+      <th class="mat-header-cell">Health</th>
+      <td class="mat-cell">{{ user.gameState.playerHealth }}</td>
     </tr>
-    <tr>
-      <th>Fitness</th>
-      <td>{{ user.gameState.playerFitness }}</td>
+    <tr class="mat-row">
+      <th class="mat-header-cell">Fitness</th>
+      <td class="mat-cell">{{ user.gameState.playerFitness }}</td>
     </tr>
-    <tr>
-      <th>Account balance</th>
-      <td>{{ user.gameState.playerAccountBalance }} <span class="fas fa-crown"></span></td>
+    <tr class="mat-row">
+      <th class="mat-header-cell">Account balance</th>
+      <td class="mat-cell">{{ user.gameState.playerAccountBalance }} <span class="fas fa-crown"></span></td>
     </tr>
   </table>
-
-  <div class="btn-group">
-    <a class="btn btn-primary" [routerLink]="['/admin/users/edit/', user.userId]">Edit</a>
-    <button class="btn btn-danger" (click)="deleteUser(user.userId)">Delete</button>
-  </div>
+    <a mat-raised-button color="primary" [routerLink]="['/admin/users/edit/', user.userId]">Edit</a>
+    <button mat-raised-button color="warn" (click)="deleteUser(user.userId)">Delete</button>
 </div>

@@ -1,15 +1,18 @@
-<div *ngIf="event && !event.done">
-  <h4>{{ event.gameEventDefinition.shortTitle }}</h4>
+<mat-card *ngIf="event && !event.done">
+  <mat-card-title>{{ event.gameEventDefinition.shortTitle }}</mat-card-title>
 
-  {{ event.gameEventDefinition.description }}
+  <mat-card-content>
+    <p>{{ event.gameEventDefinition.description }}</p>
 
-  <ul class="list-group">
-    <li *ngFor="let choice of event.gameEventDefinition.gameEventChoices" class="list-group-item list-group-item-success list-group-item-action" (click)="respondEvent(choice)">{{ choice.description }}</li>
-  </ul>
-</div>
+  <mat-action-list>
+    <button mat-list-item *ngFor="let choice of event.gameEventDefinition.gameEventChoices" (click)="respondEvent(choice)">{{ choice.description }}</button>
+  </mat-action-list>
+  </mat-card-content>
+</mat-card>
+<mat-card *ngIf="hasMessage">
+  <mat-card-content>{{ message }}</mat-card-content>
 
-<div *ngIf="hasMessage">
-  {{ message }}
-
-  <button (click)="reloadPage()" *ngIf="canContinue" class="btn btn-success">Continue</button>
-</div>
+  <mat-card-footer class="p-2">
+    <button mat-raised-button color="primary" (click)="reloadPage()" *ngIf="canContinue">Continue</button>
+  </mat-card-footer>
+</mat-card>
